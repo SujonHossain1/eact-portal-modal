@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.css';
 
@@ -8,58 +8,41 @@ interface Props {
 }
 
 const Modal: FC<Props> = ({ children, isOpen, onClose }) => {
-  const [isClose, setIsClose] = useState<boolean>(false);
-
-  const body = useRef<HTMLElement | null>(null);
-  const div = useRef<HTMLElement | null>(null);
-
-  useLayoutEffect(() => {
-    body.current = document.body;
-    div.current = document.createElement('div');
-    div.current.setAttribute('id', 'modal');
-
-    return () => {
-      div.current?.remove();
-    };
-  }, []);
+  const bodyRef = useRef<HTMLElement | null>(null);
+  const divRef = useRef<HTMLElement | null>(null);
+  const [divCreated, setDivCreated] = useState<Boolean>(false);
 
   useEffect(() => {
     if (isOpen) {
-      setIsClose(false);
+      bodyRef.current = document.querySelector('body');
+      divRef.current = document.createElement('div');
+      divRef.current.classList.add('modal');
+      bodyRef.current?.append(divRef.current);
+      setDivCreated(true);
     }
+
+    return () => {
+      divRef.current?.remove();
+      setDivCreated(false);
+    };
   }, [isOpen]);
 
-  if (isOpen) {
-    body.current?.prepend(div.current as HTMLElement);
-    console.log('render', { isOpen: isOpen });
-  }
-
   const closeHandler = () => {
-    setIsClose(true);
-
-    setTimeout(() => {
-      onClose();
-      div.current?.remove();
-    }, 700);
+    onClose();
+    divRef.current?.remove();
   };
 
-  if (!isOpen) return null;
-
-  return ReactDOM.createPortal(
-    <>
-      <div className="overlay" onClick={closeHandler}></div>
-      <div className={`modal  ${!isClose ? 'open' : 'close'} `}>
-        <button
-          style={{ display: 'block', marginTop: '20px' }}
-          onClick={closeHandler}
-        >
-          Close Modal
-        </button>
-        {children}
-      </div>
-    </>,
-    document.getElementById('modal') as Element
-  );
+  return divCreated && divRef.current
+    ? ReactDOM.createPortal(
+        <>
+          <div className="overlay" onClick={closeHandler}></div>
+          <div className={`modal-body  ${isOpen ? 'open' : 'close'} `}>
+            {children}
+          </div>
+        </>,
+        divRef.current
+      )
+    : null;
 };
 
 export default Modal;

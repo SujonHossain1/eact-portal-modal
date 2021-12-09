@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
-import './Modal.css';
 
 interface Props {
   isOpen: boolean;
@@ -35,8 +34,34 @@ const Modal: FC<Props> = ({ children, isOpen, onClose }) => {
   return divCreated && divRef.current
     ? ReactDOM.createPortal(
         <>
-          <div className="overlay" onClick={closeHandler}></div>
-          <div className={`modal-body  ${isOpen ? 'open' : 'close'} `}>
+          <div
+            style={{
+              position: 'fixed',
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              zIndex: 1000,
+            }}
+            className="overlay"
+            onClick={closeHandler}
+          ></div>
+          <div
+            style={{
+              position: 'fixed',
+              top: '50%',
+              left: '50%',
+              maxHeight: '400px',
+              width: '400px',
+              background: 'rgb(223, 221, 221)',
+              zIndex: 1000,
+              padding: '10px',
+              boxSizing: 'border-box',
+              transform: 'translate(-50%, -50%)',
+            }}
+            className={`modal-body  ${isOpen ? 'open' : 'close'} `}
+          >
             {children}
           </div>
         </>,

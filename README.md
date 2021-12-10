@@ -11,19 +11,19 @@ This is an Awesome Customizable Modal.
 To install, you can use [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com):
 
 ```bash
-npm i @sujonhossainbd/react-portal-modal
-yarn add  @sujonhossainbd/react-portal-modal
+npm i  react-portal-dialog
+yarn add   react-portal-dialog
 ```
 
 ## Examples
 
-Here is a simple example of react-portal-modal being used in an app with some custom
+Here is a simple example of react-portal-dialog being used in an app with some custom
 styles overlay and modalBoby within the modal content:
 
 #### Basic Modal
 
 ```jsx
-import Modal from '@sujonhossainbd/react-portal-modal';
+import Modal from ' react-portal-dialog';
 import { useState } from 'react';
 
 function App() {
@@ -51,7 +51,7 @@ export default App;
 
 ```jsx
 import * as React from 'react';
-import Modal from '@sujonhossainbd/react-portal-modal';
+import Modal from ' react-portal-dialog';
 
 const overlayStyle: React.CSSProperties = {
     position: 'fixed',

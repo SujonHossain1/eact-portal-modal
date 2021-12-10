@@ -11,8 +11,8 @@ This is an Awesome Customizable Modal.
 To install, you can use [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com):
 
 ```bash
-npm i  react-portal-dialog
-yarn add   react-portal-dialog
+npm i react-portal-dialog
+yarn add react-portal-dialog
 ```
 
 ## Examples

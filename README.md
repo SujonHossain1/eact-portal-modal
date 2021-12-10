@@ -105,10 +105,12 @@ const Example = () => {
 export default Example;
 ```
 
-### Props
+You can find more examples in the examples directory, which you can run in a local development server using npm start or yarn run start
 
-| Property | Required | Types    | Description                             | Default    |
-| -------- | -------- | -------- | --------------------------------------- | ---------- |
-| isOpen   | required | Boolean  | whether the modal is open               | false      |
-| onClose  | required | Function | Close the modal                         | -          |
-| children | optional | Elements | Children elements wrapped in modal body | - children |
+## Props
+
+| Property | Required | Types    | Description                             | Default  |
+| -------- | -------- | -------- | --------------------------------------- | -------- |
+| isOpen   | required | Boolean  | whether the modal is open               | false    |
+| onClose  | required | Function | Close the modal                         | -        |
+| children | optional | Elements | Children elements wrapped in modal body | children |

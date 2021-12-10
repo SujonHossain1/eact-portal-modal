@@ -30,6 +30,11 @@
   "name": "@sujonhossainbd/react-portal-modal",
   "author": "Sujon Hossain",
   "module": "dist/react-portal-modal.esm.js",
+  "keywords": [
+    "react-modal",
+    "react-portal-modal",
+    "react-dialog"
+  ],
   "size-limit": [
     {
       "path": "dist/react-portal-modal.cjs.production.min.js",

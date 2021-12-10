@@ -105,6 +105,8 @@ const Example = () => {
 export default Example;
 ```
 
+### Props
+
 | Property | Required | Types    | Description                             | Default    |
 | -------- | -------- | -------- | --------------------------------------- | ---------- |
 | isOpen   | required | Boolean  | whether the modal is open               | false      |

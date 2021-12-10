@@ -1,5 +1,5 @@
 {
-  "version": "1.6.0",
+  "version": "1.7.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -27,10 +27,11 @@
       "pre-commit": "tsdx lint"
     }
   },
-  "name": "@sujonhossainbd/react-portal-modal",
+  "name": "react-modal-portal",
   "author": "Sujon Hossain",
   "module": "dist/react-portal-modal.esm.js",
   "keywords": [
+    "react",
     "react-modal",
     "react-portal-modal",
     "react-dialog"

@@ -27,7 +27,7 @@
       "pre-commit": "tsdx lint"
     }
   },
-  "name": "react-modal-portal",
+  "name": "react-dialog",
   "author": "Sujon Hossain",
   "module": "dist/react-portal-modal.esm.js",
   "keywords": [

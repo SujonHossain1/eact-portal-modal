@@ -1,4 +1,13 @@
+### Features
+
+This is an Awesome Customizable Modal.
+
+-   Basic modal ✅
+-   Supports Nested modal ✅
+-   Custom Style ✅
+
 ## Installation
+
 To install, you can use [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com):
 
 ```bash
@@ -9,10 +18,10 @@ yarn add  @sujonhossainbd/react-portal-modal
 ## Examples
 
 Here is a simple example of react-portal-modal being used in an app with some custom
-styles overlay and modalBoby  within the modal content:
-
+styles overlay and modalBoby within the modal content:
 
 #### Basic Modal
+
 ```jsx
 import Modal from '@sujonhossainbd/react-portal-modal';
 import { useState } from 'react';
@@ -38,11 +47,11 @@ function App() {
 export default App;
 ```
 
+#### Modal With Custom Style
 
-####  Modal With Custom Style
 ```jsx
 import * as React from 'react';
-import Modal from '@sujonhossainbd/react-portal-modal'
+import Modal from '@sujonhossainbd/react-portal-modal';
 
 const overlayStyle: React.CSSProperties = {
     position: 'fixed',
@@ -67,7 +76,7 @@ const modalBodyStyle: React.CSSProperties = {
 };
 
 const Example = () => {
-    const [isOpen, setIsOpen] = React.useState<boolean>(false);
+    const [isOpen, setIsOpen] = React.useState < boolean > false;
 
     const onOpen = () => {
         setIsOpen(true);
@@ -94,8 +103,10 @@ const Example = () => {
 };
 
 export default Example;
-
 ```
 
-
-
+| Property | Required | Types    | Description                             | Default    |
+| -------- | -------- | -------- | --------------------------------------- | ---------- |
+| isOpen   | required | Boolean  | whether the modal is open               | false      |
+| onClose  | required | Function | Close the modal                         | -          |
+| children | optional | Elements | Children elements wrapped in modal body | - children |

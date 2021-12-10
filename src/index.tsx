@@ -8,7 +8,6 @@ import {
 interface Props {
     isOpen: boolean;
     onClose: () => void;
-    children?: React.ReactChildren;
     overlayStyle?: React.CSSProperties;
     modalBodyStyle?: React.CSSProperties;
 }

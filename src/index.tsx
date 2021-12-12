@@ -51,7 +51,7 @@ const Modal: FC<Props> = ({
               <>
                   <div
                       style={overlayStyle}
-                      className="overlay"
+                      className="modal"
                       onClick={closeHandler}
                   ></div>
                   <div

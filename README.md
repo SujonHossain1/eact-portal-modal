@@ -23,6 +23,7 @@ styles overlay and ModalBody within the modal content:
 ## Live Demo
 
 [Basic Modal Example](https://codesandbox.io/s/naughty-fire-pmfod)
+
 [Nested Modal Example](https://codesandbox.io/s/react-portal-dialog-nested-example-siimn)
 
 #### Basic Modal

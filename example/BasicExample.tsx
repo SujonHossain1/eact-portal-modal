@@ -11,7 +11,7 @@ const BasicExample = () => {
         setIsOpen(false);
     };
     return (
-        <div>
+        <>
             <button onClick={onOpen}>Open Modal</button>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <button onClick={onClose}>Close</button>
@@ -19,7 +19,7 @@ const BasicExample = () => {
                     style={{ backgroundColor: 'saddlebrown', padding: '100px' }}
                 ></h1>
             </Modal>
-        </div>
+        </>
     );
 };
 

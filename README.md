@@ -1,6 +1,6 @@
 ### Features
 
-This is an Awesome Customizable Modal.
+React Portal Dialog is an Awesome Customizable Modal.
 
 -   Basic modal ✅
 -   Supports Nested modal ✅
@@ -18,7 +18,12 @@ yarn add react-portal-dialog
 ## Examples
 
 Here is a simple example of react-portal-dialog being used in an app with some custom
-styles overlay and modalBoby within the modal content:
+styles overlay and ModalBody within the modal content:
+
+## Live Demo
+
+[Basic Modal Example](https://codesandbox.io/s/naughty-fire-pmfod)
+[Nested Modal Example](https://codesandbox.io/s/react-portal-dialog-nested-example-siimn)
 
 #### Basic Modal
 
@@ -27,7 +32,7 @@ import Modal from ' react-portal-dialog';
 import { useState } from 'react';
 
 function App() {
-    const [isOpen, setIsOpen] = useState < boolean > false;
+    const [isOpen, setIsOpen] = useState(false);
     const openModal = () => {
         setIsOpen(true);
     };
@@ -76,7 +81,7 @@ const modalBodyStyle: React.CSSProperties = {
 };
 
 const Example = () => {
-    const [isOpen, setIsOpen] = React.useState < boolean > false;
+    const [isOpen, setIsOpen] = React.useState(false);
 
     const onOpen = () => {
         setIsOpen(true);

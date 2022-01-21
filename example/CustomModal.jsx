@@ -23,11 +23,13 @@ const CustomStyleModal = () => {
             <Modal
                 isOpen={isOpen}
                 onClose={onClose}
-                isOverlay
                 customStyles={customStyles}
+                isOverlay
             >
-                <button onClick={onClose}>Close Modal</button>
-                <h1>Hello Modal</h1>
+                <div style={{ padding: '10px' }}>
+                    <button onClick={onClose}>Close Modal</button>
+                    <h1>Hello Modal</h1>
+                </div>
             </Modal>
         </div>
     );

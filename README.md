@@ -1,10 +1,11 @@
 ### Features
 
-React Portal Dialog is an Awesome Customizable Modal.
+React Portal Dialog is an Awesome Customizable and Draggable Modal.
 
--   Basic modal ✅
--   Supports Nested modal ✅
+-   Basic Modal ✅
+-   Supports Nested Modal ✅
 -   Custom Style ✅
+-   Draggable Modal ✅
 
 ## Installation
 
@@ -18,7 +19,7 @@ yarn add react-portal-dialog
 ## Examples
 
 Here is a simple example of react-portal-dialog being used in an app with some custom
-styles overlay and ModalBody within the modal content:
+styles ModalBody within the modal content:
 
 ## Live Demo
 
@@ -45,8 +46,10 @@ const BasicModal = () => {
         <div>
             <button onClick={onOpen}>Open Modal</button>
             <Modal isOpen={isOpen} onClose={onClose} isOverlay>
-                <button onClick={closeModal}>Close Modal</button>
-                <h1>Hello Modal</h1>
+                <div style={{ padding: '10px' }}>
+                    <button onClick={onClose}>Close Modal</button>
+                    <h1>Hello Modal</h1>
+                </div>
             </Modal>
         </div>
     );
@@ -81,16 +84,86 @@ const CustomStyleModal = () => {
             <Modal
                 isOpen={isOpen}
                 onClose={onClose}
-                isOverlay
                 customStyles={customStyles}
+                isOverlay
             >
-                <button onClick={closeModal}>Close Modal</button>
-                <h1>Hello Modal</h1>
+                <div style={{ padding: '10px' }}>
+                    <button onClick={onClose}>Close Modal</button>
+                    <h1>Hello Modal</h1>
+                </div>
             </Modal>
         </div>
     );
 };
 export default CustomStyleModal;
+```
+
+#### Nested Modal
+
+```jsx
+import Modal from ' react-portal-dialog';
+import { useState } from 'react';
+
+const AnotherModal = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const onOpen = () => {
+        setIsOpen(true);
+    };
+
+    const onClose = () => {
+        setIsOpen(false);
+    };
+    return (
+        <div>
+            <button onClick={onOpen}>Open Child Modal</button>
+            <Modal isOpen={isOpen} onClose={onClose} isOverlay>
+                <div style={{ padding: '10px' }}>
+                    <button onClick={onClose}>Close Child Modal</button>
+                    <h1> Child Modal</h1>
+                </div>
+            </Modal>
+        </div>
+    );
+};
+export default AnotherModal;
+
+import Modal from ' react-portal-dialog';
+import { useState } from 'react';
+
+const customStyles = {
+    maxHeight: '450px',
+    width: '400px',
+    background: 'lightblue',
+};
+
+const NestedModalExample = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const onOpen = () => {
+        setIsOpen(true);
+    };
+
+    const onClose = () => {
+        setIsOpen(false);
+    };
+    return (
+        <div>
+            <button onClick={onOpen}>Open Modal</button>
+            <Modal
+                isOpen={isOpen}
+                onClose={onClose}
+                customStyles={customStyles}
+                isOverlay
+            >
+                <div style={{ padding: '10px' }}>
+                    <button onClick={onClose}>Close Modal</button>
+                    <AnotherModal />
+                    <h1>Hello Modal</h1>
+                </div>
+            </Modal>
+        </div>
+    );
+};
+export default NestedModalExample;
 ```
 
 You can find more examples in the examples directory, which you can run in a local development server using npm start or yarn run start
@@ -103,4 +176,5 @@ You can find more examples in the examples directory, which you can run in a loc
 | onClose      | required | Function | Close the modal                         | -        |
 | children     | optional | Elements | Children elements wrapped in modal body | children |
 | customStyles | optional | Style    | Update Modal Body Style                 | null     |
-| isOverlay    | optional | Boolean  | Overlay Background                      | false    |
+| isDraggable  | optional | Boolean  | Move for Modal Body                     | false    |
+| isOverlay    | optional | Boolean  | Overlay Background                      | true     |

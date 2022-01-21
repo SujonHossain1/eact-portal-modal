@@ -13,5 +13,11 @@
     background-color: rgb(223, 221, 221);
     z-index: 1000;
     transform: translate(-50%, -50%);
-    padding: 10px;
+}
+
+.ReactPortalDialog__Move {
+    background-color: salmon;
+    text-align: center;
+    padding: 5px;
+    cursor: move;
 }

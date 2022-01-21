@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
+import { Draggable } from './components/Draggable';
 import './style/style.css';
 
 interface Props {
@@ -7,6 +8,7 @@ interface Props {
     onClose: () => void;
     customStyles?: React.CSSProperties;
     isOverlay?: boolean;
+    isDraggable?: boolean;
 }
 
 const Modal: FC<Props> = ({
@@ -14,7 +16,8 @@ const Modal: FC<Props> = ({
     isOpen,
     onClose,
     customStyles,
-    isOverlay,
+    isOverlay = true,
+    isDraggable = false,
 }) => {
     const bodyRef = useRef<HTMLElement | null>(null);
     const divRef = useRef<HTMLElement | null>(null);
@@ -52,9 +55,17 @@ const Modal: FC<Props> = ({
                       className="ReactPortalDialog__Overlay"
                       onClick={closeHandler}
                   />
-                  <div style={customStyles} className="ReactPortalDialog__Body">
-                      {children}
-                  </div>
+
+                  {isDraggable ? (
+                      <Draggable>{children}</Draggable>
+                  ) : (
+                      <div
+                          style={customStyles}
+                          className="ReactPortalDialog__Body"
+                      >
+                          {children}
+                      </div>
+                  )}
               </>,
               divRef.current
           )

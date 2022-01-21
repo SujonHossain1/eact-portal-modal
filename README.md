@@ -32,70 +32,65 @@ styles overlay and ModalBody within the modal content:
 import Modal from ' react-portal-dialog';
 import { useState } from 'react';
 
-function App() {
+const BasicModal = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const openModal = () => {
-        setIsOpen(true);
-    };
-    const closeModal = () => {
-        setIsOpen(false);
-    };
-    return (
-        <div>
-            <button onClick={openModal}>Open Modal</button>
-            <Modal isOpen={isOpen} onClose={closeModal} isOverlay>
-                <button onClick={closeModal}>Close Modal</button>
-            </Modal>
-        </div>
-    );
-}
-
-export default App;
-```
-
-#### Modal With Custom Style
-
-```jsx
-import * as React from 'react';
-import Modal from ' react-portal-dialog';
-
-const customStyle = {
-    position: 'fixed',
-    top: '50%',
-    left: '50%',
-    height: '450px',
-    width: '400px',
-    background: 'lightblue',
-};
-
-const Example = () => {
-    const [isOpen, setIsOpen] = React.useState(false);
-
     const onOpen = () => {
         setIsOpen(true);
     };
+
     const onClose = () => {
         setIsOpen(false);
     };
     return (
         <div>
             <button onClick={onOpen}>Open Modal</button>
-            <Modal
-                isOpen={isOpen}
-                onClose={onClose}
-                modalBodyStyle={modalBodyStyle}
-                overlayStyle={overlayStyle}
-            >
-                <button onClick={onClose}>Close</button>
-                <h1
-                    style={{ backgroundColor: 'saddlebrown', padding: '100px' }}
-                />
+            <Modal isOpen={isOpen} onClose={onClose} isOverlay>
+                <button onClick={closeModal}>Close Modal</button>
+                <h1>Hello Modal</h1>
             </Modal>
         </div>
     );
 };
+export default BasicModal;
+```
 
-export default Example;
+#### Modal With Custom Style
+
+```jsx
+import Modal from ' react-portal-dialog';
+import { useState } from 'react';
+
+const customStyles = {
+    maxHeight: '450px',
+    width: '400px',
+    background: 'lightblue',
+};
+
+const CustomStyleModal = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const onOpen = () => {
+        setIsOpen(true);
+    };
+
+    const onClose = () => {
+        setIsOpen(false);
+    };
+    return (
+        <div>
+            <button onClick={onOpen}>Open Custom Modal</button>
+            <Modal
+                isOpen={isOpen}
+                onClose={onClose}
+                isOverlay
+                customStyles={customStyles}
+            >
+                <button onClick={closeModal}>Close Modal</button>
+                <h1>Hello Modal</h1>
+            </Modal>
+        </div>
+    );
+};
+export default CustomStyleModal;
 ```
 
 You can find more examples in the examples directory, which you can run in a local development server using npm start or yarn run start
@@ -107,5 +102,5 @@ You can find more examples in the examples directory, which you can run in a loc
 | isOpen       | required | Boolean  | whether the modal is open               | false    |
 | onClose      | required | Function | Close the modal                         | -        |
 | children     | optional | Elements | Children elements wrapped in modal body | children |
-| customStyles | optional | Style    | Update Modal Body Style                 | children |
-| isOverlay    | optional | Boolean  | Overlay Background                      | children |
+| customStyles | optional | Style    | Update Modal Body Style                 | null     |
+| isOverlay    | optional | Boolean  | Overlay Background                      | false    |

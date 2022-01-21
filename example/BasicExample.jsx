@@ -2,13 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import Modal from '../src/index';
 
-const customStyles = {
-    maxHeight: '450px',
-    width: '400px',
-    background: 'red',
-};
-
-const BasicExample = () => {
+const BasicModal = () => {
     const [isOpen, setIsOpen] = useState(false);
     const onOpen = () => {
         setIsOpen(true);
@@ -19,17 +13,12 @@ const BasicExample = () => {
     };
     return (
         <div>
-            <button onClick={onOpen}>Open</button>
-            <Modal
-                isOpen={isOpen}
-                onClose={onClose}
-                isOverlay
-                customStyles={customStyles}
-            >
+            <button onClick={onOpen}>Open Modal</button>
+            <Modal isOpen={isOpen} onClose={onClose} isOverlay>
+                <button onClick={onClose}>Close Modal</button>
                 <h1>Hello Modal</h1>
             </Modal>
         </div>
     );
 };
-
-export default BasicExample;
+export default BasicModal;

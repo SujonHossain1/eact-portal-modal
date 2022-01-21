@@ -41,12 +41,12 @@ function App() {
         setIsOpen(false);
     };
     return (
-        <>
+        <div>
             <button onClick={openModal}>Open Modal</button>
-            <Modal isOpen={isOpen} onClose={closeModal}>
+            <Modal isOpen={isOpen} onClose={closeModal} isOverlay>
                 <button onClick={closeModal}>Close Modal</button>
             </Modal>
-        </>
+        </div>
     );
 }
 
@@ -59,26 +59,13 @@ export default App;
 import * as React from 'react';
 import Modal from ' react-portal-dialog';
 
-const overlayStyle: React.CSSProperties = {
-    position: 'fixed',
-    left: '0',
-    right: '0',
-    top: ' 0',
-    bottom: '0',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    zIndex: '1000',
-};
-
-const modalBodyStyle: React.CSSProperties = {
+const customStyle = {
     position: 'fixed',
     top: '50%',
     left: '50%',
-    maxHeight: '450px',
+    height: '450px',
     width: '400px',
-    background: 'gray',
-    zIndex: '1000',
-    padding: '10px',
-    transform: 'translate(-50%, -50%)',
+    background: 'lightblue',
 };
 
 const Example = () => {
@@ -102,7 +89,7 @@ const Example = () => {
                 <button onClick={onClose}>Close</button>
                 <h1
                     style={{ backgroundColor: 'saddlebrown', padding: '100px' }}
-                ></h1>
+                />
             </Modal>
         </div>
     );
@@ -115,8 +102,10 @@ You can find more examples in the examples directory, which you can run in a loc
 
 ## Props
 
-| Property | Required | Types    | Description                             | Default  |
-| -------- | -------- | -------- | --------------------------------------- | -------- |
-| isOpen   | required | Boolean  | whether the modal is open               | false    |
-| onClose  | required | Function | Close the modal                         | -        |
-| children | optional | Elements | Children elements wrapped in modal body | children |
+| Property     | Required | Types    | Description                             | Default  |
+| ------------ | -------- | -------- | --------------------------------------- | -------- |
+| isOpen       | required | Boolean  | whether the modal is open               | false    |
+| onClose      | required | Function | Close the modal                         | -        |
+| children     | optional | Elements | Children elements wrapped in modal body | children |
+| customStyles | optional | Style    | Update Modal Body Style                 | children |
+| isOverlay    | optional | Boolean  | Overlay Background                      | children |

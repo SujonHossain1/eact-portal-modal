@@ -39,7 +39,9 @@
     "react-modal",
     "react-portal-dialog",
     "react-portal-modal",
-    "react-dialog"
+    "react-dialog",
+    "modal",
+    "portal"
   ],
   "size-limit": [
     {

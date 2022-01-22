@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Draggable } from './components/Draggable';
-import styles from './style/style.module.css';
+import * as styles from './style/styles';
 
 interface Props {
     isOpen: boolean;
@@ -23,10 +23,6 @@ const Modal: FC<Props> = ({
     const divRef = useRef<HTMLElement | null>(null);
     const [divCreated, setDivCreated] = useState<Boolean>(false);
 
-    const overlayStyle = {
-        backgroundColor: isOverlay ? 'rgba(0, 0, 0, 0.5)' : 'transparent',
-    };
-
     useEffect(() => {
         if (isOpen) {
             bodyRef.current = document.querySelector('body');
@@ -47,21 +43,28 @@ const Modal: FC<Props> = ({
         divRef.current?.remove();
     };
 
+    const overlayStyle = {
+        ...styles.ReactPortalDialog__Overlay,
+        backgroundColor: isOverlay ? 'rgba(0, 0, 0, 0.5)' : 'transparent',
+    };
+
+    const bodyStyle = customStyles || styles.ReactPortalDialog__Body;
+
     return divCreated && divRef.current
         ? ReactDOM.createPortal(
               <>
                   <div
                       style={overlayStyle}
-                      className={styles.ReactPortalDialog__Overlay}
+                      className="ReactPortalDialog__Overlay"
                       onClick={closeHandler}
                   />
 
                   {isDraggable ? (
-                      <Draggable>{children}</Draggable>
+                      <Draggable bodyStyle={bodyStyle}>{children}</Draggable>
                   ) : (
                       <div
-                          style={customStyles}
-                          className={styles.ReactPortalDialog__Body}
+                          style={bodyStyle}
+                          className="ReactPortalDialog__Body"
                       >
                           {children}
                       </div>

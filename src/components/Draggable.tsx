@@ -1,7 +1,11 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
-import styles from '../style/style.module.css';
+import * as styles from '../style/styles';
 
-export const Draggable: FC = ({ children }) => {
+interface IProps {
+    bodyStyle: React.CSSProperties;
+}
+
+export const Draggable: FC<IProps> = ({ children, bodyStyle }) => {
     const boxRef = useRef<HTMLDivElement>(null);
     const dragRef = useRef<HTMLDivElement>(null);
     const [isDragActive, setIsDragActive] = useState<boolean>(false);
@@ -47,8 +51,12 @@ export const Draggable: FC = ({ children }) => {
     }, [dragEndHandler, dragStartHandler, draggingHandler]);
 
     return (
-        <div ref={boxRef} className={styles.ReactPortalDialog__Body}>
-            <div ref={dragRef} className={styles.ReactPortalDialog__Move}>
+        <div ref={boxRef} style={bodyStyle} className="ReactPortalDialog__Body">
+            <div
+                ref={dragRef}
+                style={styles.ReactPortalDialog__Move}
+                className="ReactPortalDialog__Move"
+            >
                 Move Here
             </div>
             {children}

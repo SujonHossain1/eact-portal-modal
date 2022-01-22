@@ -1,4 +1,5 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
+import styles from '../style/style.module.css';
 
 export const Draggable: FC = ({ children }) => {
     const boxRef = useRef<HTMLDivElement>(null);
@@ -46,8 +47,8 @@ export const Draggable: FC = ({ children }) => {
     }, [dragEndHandler, dragStartHandler, draggingHandler]);
 
     return (
-        <div ref={boxRef} className="ReactPortalDialog__Body">
-            <div ref={dragRef} className="ReactPortalDialog__Move">
+        <div ref={boxRef} className={styles.ReactPortalDialog__Body}>
+            <div ref={dragRef} className={styles.ReactPortalDialog__Move}>
                 Move Here
             </div>
             {children}

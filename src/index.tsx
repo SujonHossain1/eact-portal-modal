@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Draggable } from './components/Draggable';
-import './style/style.css';
+import styles from './style/style.module.css';
 
 interface Props {
     isOpen: boolean;
@@ -52,7 +52,7 @@ const Modal: FC<Props> = ({
               <>
                   <div
                       style={overlayStyle}
-                      className="ReactPortalDialog__Overlay"
+                      className={styles.ReactPortalDialog__Overlay}
                       onClick={closeHandler}
                   />
 
@@ -61,7 +61,7 @@ const Modal: FC<Props> = ({
                   ) : (
                       <div
                           style={customStyles}
-                          className="ReactPortalDialog__Body"
+                          className={styles.ReactPortalDialog__Body}
                       >
                           {children}
                       </div>

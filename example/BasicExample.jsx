@@ -14,7 +14,7 @@ const BasicModal = () => {
     return (
         <div>
             <button onClick={onOpen}>Open Modal</button>
-            <Modal isOpen={isOpen} onClose={onClose} isOverlay isDraggable>
+            <Modal isOpen={isOpen} onClose={onClose} isDraggable>
                 <div style={{ padding: '10px' }}>
                     <button onClick={onClose}>Close Modal</button>
                     <h1>Hello Modal</h1>

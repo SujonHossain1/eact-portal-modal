@@ -30,7 +30,7 @@ styles ModalBody within the modal content:
 #### Basic Modal
 
 ```jsx
-import Modal from ' react-portal-dialog';
+import Modal from 'react-portal-dialog';
 import { useState } from 'react';
 
 const BasicModal = () => {
@@ -60,7 +60,7 @@ export default BasicModal;
 #### Modal With Custom Style
 
 ```jsx
-import Modal from ' react-portal-dialog';
+import Modal from 'react-portal-dialog';
 import { useState } from 'react';
 
 const customStyles = {
@@ -101,7 +101,7 @@ export default CustomStyleModal;
 #### Nested Modal
 
 ```jsx
-import Modal from ' react-portal-dialog';
+import Modal from 'react-portal-dialog';
 import { useState } from 'react';
 
 const AnotherModal = () => {
@@ -127,7 +127,7 @@ const AnotherModal = () => {
 };
 export default AnotherModal;
 
-import Modal from ' react-portal-dialog';
+import Modal from 'react-portal-dialog';
 import { useState } from 'react';
 
 const customStyles = {
